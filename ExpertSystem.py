@@ -7,13 +7,17 @@ class ExperSystem(KnowledgeEngine):
         self.MDDota2 = 0
         self.MDMinecraft = 0
         self.MDFactorio = 0
+        self.MDPoppy = 0
+        self.MDWoT = 0
         # Меры недоверия
         self.MNDDota2 = 0
         self.MNDMinecraft = 0
         self.MNDFactorio = 0
+        self.MNDPoppy = 0
+        self.MNDWoT = 0
 
 
-#прежде чем правила писать надо схему завершить и игры туда напихать, чтобы их связи знать
+#прежде чем правила писать надо схему завершить и игры туда напихать, чтобы их связи знать. На глаголы не рифмуй, за щеку получишь хуй
     @Rule(
         Fact(answ="1-1") | Fact(answ="2-1"))
     def __(self):
