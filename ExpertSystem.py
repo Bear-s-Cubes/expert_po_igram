@@ -12,6 +12,8 @@ class ExperSystem(KnowledgeEngine):
         self.MNDMinecraft = 0
         self.MNDFactorio = 0
 
+
+#прежде чем правила писать надо схему завершить и игры туда напихать, чтобы их связи знать
     @Rule(
         Fact(answ="1-1") | Fact(answ="2-1"))
     def __(self):
