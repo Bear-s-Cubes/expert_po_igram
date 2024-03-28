@@ -28,7 +28,7 @@ class ExperSystem(KnowledgeEngine):
         """
         Обновляет Меры недоверия
         """
-        self.distrust_scores[game] += multiplier * (1 - self.trust_scores[game])
+        self.distrust_scores[game] += multiplier * (1 - self.distrust_scores[game])
 
     @Rule(Fact(answ="1-1") | Fact(answ="2-1"))
     def handle_casual_player(self):
