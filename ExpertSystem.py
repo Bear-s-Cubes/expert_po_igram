@@ -31,10 +31,28 @@ class ExperSystem(KnowledgeEngine):
         self.distrust_scores[game] += multiplier * (1 - self.trust_scores[game])
 
 #прежде чем правила писать надо схему завершить и игры туда напихать, чтобы их связи знать. На глаголы не рифмуй, за щеку получишь хуй
-    @Rule(Fact(answ="1-1") | Fact(answ="2-1"))
-    def handle_casual_player(self):
-        self.updTrust("Minecraft", 0.2)
         
-
-    def handle_tryhard_player(self):
-        self.updTrust()
+    @Rule(Fact(answ="5-1") | Fact(answ="6-1") | Fact(answ = "7 - 2") | Fact(answ = "13 - 1"))
+    def handle_Singler(self):
+        self.updTrust("Poppy", 0.4)
+        self.updTrust("Minecraft", 0.3)
+        self.updTrust("Factorio", 0.4)
+        self.updTrust("WoT", 0.1)
+        self.updDistrust("Dota2", 0.4)
+    
+    @Rule(Fact(answ="5-2") | Fact(answ="6-2") | Fact(answ = "7 - 3") | Fact(answ = "13 - 2"))
+    def handle_Coop(self):
+        self.updDistrust("Poppy", 0.2)
+        self.updTrust("Minecraft", 0.4)
+        self.updTrust("Factorio", 0.2)
+        self.updTrust("WoT", 0.3)
+        self.updTrust("Dota2", 0.4)
+    
+    @Rule(Fact(answ="5-3") | Fact(answ="6-3") | Fact(answ = "7 - 1") | Fact(answ = "13 - 3"))
+    def handle_Multi(self):
+        self.updDistrust("Poppy", 0.4)
+        self.updTrust("Minecraft", 0.2)
+        self.updDistrust("Factorio", 0.2)
+        self.updTrust("WoT", 0.5)
+        self.updTrust("Dota2", 0.5)
+        
