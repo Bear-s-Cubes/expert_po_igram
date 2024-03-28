@@ -112,3 +112,6 @@ class ExperSystem(KnowledgeEngine):
         self.addTrust("Factorio", 0.5)
         self.addTrust("Minecraft", 0.2)
         self.addDistrust("Poppy", 0.3)
+        self.addDistrust("WoT", 0.3)
+        self.addDistrust("Dota2", 0.2)
+        
