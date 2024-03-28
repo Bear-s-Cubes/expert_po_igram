@@ -56,3 +56,11 @@ class ExperSystem(KnowledgeEngine):
         self.updTrust("WoT", 0.5)
         self.updTrust("Dota2", 0.5)
         
+    @Rule(Fact(answ="1-2") | Fact(answ="12 - 3") | Fact(answ = "11 - 2") | Fact(answ = "8 - 2") | Fact(answ = "9 - 1"))
+    def handle_TrueTryhard(self):
+        self.updTrust("Factorio", 0.4)
+        self.updTrust("WoT", 0.3)
+        self.updTrust("Dota2", 0.5)
+        self.updDistrust("Minecraft", 0.1)
+        self.updDistrust("Poppy", 0.4)
+        
