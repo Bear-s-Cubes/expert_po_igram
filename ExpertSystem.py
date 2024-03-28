@@ -18,19 +18,43 @@ class ExperSystem(KnowledgeEngine):
             "WoT": 0,
         }
     
-    def updTrust(self, game: str, multiplier: float):
+    def addTrust(self, game: str, multiplier: float):
         """
         Обновляет Меры доверия
         """
         self.trust_scores[game] += multiplier * (1 - self.trust_scores[game])
 
-    def updDistrust(self, game: str, multiplier: float):
+    def addDistrust(self, game: str, multiplier: float):
         """
         Обновляет Меры недоверия
         """
         self.distrust_scores[game] += multiplier * (1 - self.trust_scores[game])
 
-#прежде чем правила писать надо схему завершить и игры туда напихать, чтобы их связи знать. На глаголы не рифмуй, за щеку получишь хуй
+    @Rule(Fact(answ="1-1") | Fact(answ="2-1"))
+    def handle_casual_player(self):
+        """
+        Игрок - казуальщик
+        """        
+        self.addTrust("Minecraft", 0.2)
+        self.addDistrust("Dota2", 0.2)
+        self.addDistrust("WoT", 0.2)
+
+    @Rule(Fact(answ="1-1") | Fact(answ="2-1"))    
+    def handle_tryhard_player(self):
+        """
+        Игрок - трайхардер
+        """
+        self.addTrust("Dota2", 0.2)
+        self.addTrust("Minecraft", 0.2)
+        self.addTrust("WoT", 0.2)
+
+    @Rule(Fact(answ="1-1") | Fact(answ="2-1"))
+    def handle_steampunk_enjoyer(self):
+        """
+        Игрок любит сеттинг steampunk
+        """
+        self.addTrust("Minecraft", 0.2)
+        self.addTrust("Factorio", 0.2)
         
     @Rule(Fact(answ="5-1") | Fact(answ="6-1") | Fact(answ = "7 - 2") | Fact(answ = "13 - 1"))
     def handle_Singler(self):
