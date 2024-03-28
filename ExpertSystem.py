@@ -64,7 +64,10 @@ class ExperSystem(KnowledgeEngine):
         self.addTrust("Minecraft", 0.2)
         self.addTrust("Factorio", 0.2)
         
-    @Rule(Fact(answ="5-1") | Fact(answ="6-1") | Fact(answ = "7 - 2") | Fact(answ = "13 - 1"))
+    @Rule(Fact(answ ="5-1") | 
+          Fact(answ ="6-1") | 
+          Fact(answ = "7-2") | 
+          Fact(answ = "13-1"))
     def handle_Singler(self):
         self.addTrust("Poppy", 0.4)
         self.addTrust("Minecraft", 0.3)
@@ -72,7 +75,10 @@ class ExperSystem(KnowledgeEngine):
         self.addTrust("WoT", 0.1)
         self.addDistrust("Dota2", 0.4)
     
-    @Rule(Fact(answ="5-2") | Fact(answ="6-2") | Fact(answ = "7 - 3") | Fact(answ = "13 - 2"))
+    @Rule(Fact(answ ="5-2") | 
+          Fact(answ ="6-2") | 
+          Fact(answ = "7-3") | 
+          Fact(answ = "13-2"))
     def handle_Coop(self):
         self.addDistrust("Poppy", 0.2)
         self.addTrust("Minecraft", 0.4)
@@ -80,7 +86,10 @@ class ExperSystem(KnowledgeEngine):
         self.addTrust("WoT", 0.3)
         self.addTrust("Dota2", 0.4)
     
-    @Rule(Fact(answ="5-3") | Fact(answ="6-3") | Fact(answ = "7 - 1") | Fact(answ = "13 - 3"))
+    @Rule(Fact(answ ="5-3") | 
+          Fact(answ ="6-3") | 
+          Fact(answ = "7-1") | 
+          Fact(answ = "13-3"))
     def handle_Multi(self):
         self.addDistrust("Poppy", 0.4)
         self.addTrust("Minecraft", 0.2)
@@ -88,11 +97,29 @@ class ExperSystem(KnowledgeEngine):
         self.addTrust("WoT", 0.5)
         self.addTrust("Dota2", 0.5)
         
-    @Rule(Fact(answ="1-2") | Fact(answ="12 - 3") | Fact(answ = "11 - 2") | Fact(answ = "8 - 2") | Fact(answ = "9 - 1"))
+    @Rule(Fact(answ ="1-2") | 
+          Fact(answ = "8-2") |
+          Fact(answ = "9-1") |
+          Fact(answ = "11-2") | 
+          Fact(answ ="12-3"))
     def handle_TrueTryhard(self):
         self.addTrust("Factorio", 0.4)
         self.addTrust("WoT", 0.3)
         self.addTrust("Dota2", 0.5)
         self.addDistrust("Minecraft", 0.1)
         self.addDistrust("Poppy", 0.4)
+        
+    @Rule(Fact(answ ="1-3") |
+          Fact(answ = "7-1") | 
+          Fact(answ ="8-3") | 
+          Fact(answ = "10-2") | 
+          Fact(answ = "12-2") |
+          Fact(answ = "13-4") |
+          Fact(answ ="14-1"))
+    def handle_Mind(self):
+        self.addTrust("Factorio", 0.5)
+        self.addTrust("Minecraft", 0.2)
+        self.addDistrust("Poppy", 0.3)
+        self.addDistrust("WoT", 0.3)
+        self.addDistrust("Dota2", 0.2)
         
