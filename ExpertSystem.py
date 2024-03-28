@@ -4,18 +4,18 @@ class ExperSystem(KnowledgeEngine):
     def __init__(self):
         super().__init__()
         self.trust_scores = {
-            "Dota2": 0,
-            "Minecraft": 0,
-            "Factorio": 0,
-            "Poppy": 0,
-            "WoT": 0,
+            "Dota2": 0.0,
+            "Minecraft": 0.0,
+            "Factorio": 0.0,
+            "Poppy": 0.0,
+            "WoT": 0.0,
         }
         self.distrust_scores = {
-            "Dota2": 0,
-            "Minecraft": 0,
-            "Factorio": 0,
-            "Poppy": 0,
-            "WoT": 0,
+            "Dota2": 0.0,
+            "Minecraft": 0.0,
+            "Factorio": 0.0,
+            "Poppy": 0.0,
+            "WoT": 0.0,
         }
     
     def addTrust(self, game: str, multiplier: float):
