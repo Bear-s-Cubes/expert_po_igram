@@ -30,7 +30,11 @@ class ExperSystem(KnowledgeEngine):
         """
         self.distrust_scores[game] += multiplier * (1 - self.trust_scores[game])
 
-    @Rule(Fact(answ="1-1") | Fact(answ="2-1"))
+    @Rule(Fact(answ="1-1") | 
+          Fact(answ="3-1") | 
+          Fact(answ="3-2") |
+          Fact(answ="7-1") |
+          Fact(answ="7-2") )
     def handle_casual_player(self):
         """
         Игрок - казуальщик
@@ -39,7 +43,10 @@ class ExperSystem(KnowledgeEngine):
         self.addDistrust("Dota2", 0.2)
         self.addDistrust("WoT", 0.2)
 
-    @Rule(Fact(answ="1-1") | Fact(answ="2-1"))    
+    @Rule(Fact(answ="1-2") | 
+          Fact(answ="3-3") | 
+          Fact(answ="3-4") |
+          Fact(answ="7-4") )    
     def handle_tryhard_player(self):
         """
         Игрок - трайхардер
@@ -48,7 +55,8 @@ class ExperSystem(KnowledgeEngine):
         self.addTrust("Minecraft", 0.2)
         self.addTrust("WoT", 0.2)
 
-    @Rule(Fact(answ="1-1") | Fact(answ="2-1"))
+    @Rule(Fact(answ="1-1") | 
+          Fact(answ="2-1") )
     def handle_steampunk_enjoyer(self):
         """
         Игрок любит сеттинг steampunk
