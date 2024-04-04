@@ -67,14 +67,13 @@ class ExpertSystem(KnowledgeEngine):
         self.addTrust("Minecraft", 0.2)
         self.addTrust("WoT", 0.2)
 
-    @Rule(Fact(answ = "1-1") | 
-          Fact(answ = "2-1") )
-    def handle_steampunk_enjoyer(self):
+    @Rule(Fact(answ = "1-3") | 
+          Fact(answ = "2-3") )
+    def handle_fantsy_enjoyer(self):
         """
-        Игрок любит сеттинг steampunk
+        Игрок любит сеттинг fntsy
         """
-        self.addTrust("Minecraft", 0.2)
-        self.addTrust("Factorio", 0.2)
+        self.addTrust("Minecraft", 0.4)
         
     @Rule(Fact(answ = "5-1") | 
           Fact(answ = "6-1") | 
@@ -134,6 +133,55 @@ class ExpertSystem(KnowledgeEngine):
         self.addDistrust("Poppy", 0.3)
         self.addDistrust("WoT", 0.3)
         self.addDistrust("Dota2", 0.2)
+    
+    @Rule(Fact(answ = "3-2") |
+          Fact(answ = "7-4") |
+          Fact(answ = "8-1") |
+          Fact(answ = "9-3") |
+          Fact(answ = "12-1") |
+          Fact(answ = "14-2"))
+    def handle_Fool(self):
+        self.addTrust("Dota2", 0.2)
+        self.addTrust("Minecraft", 0.4)
+        self.addDistrust("WoT", 0.3)
+        self.addDistrust("Poppy", 0.2)
+        self.addDistrust("Factorio", 0.2)        
+    
+    @Rule(Fact(answ = "1-4") |
+          Fact(answ = "2-2") |
+          Fact(answ = "3-1") |
+          Fact(answ = "3-2") |
+          Fact(answ = "9-2") |
+          Fact(answ = "10-3") |
+          Fact(answ = "11-1") |
+          Fact(answ = "14-3"))
+    def handle_Scuf(self):
+        self.addTrust("WoT", 0.5)
+        self.addTrust("Dota2", 0.3)
+        self.addTrust("Factorio", 0.3)
+        self.addDistrust("Poppy", 0.3)
+        self.addDistrust("Minecraft", 0.1)
+        
+    @Rule(Fact(answ = "3-4") |
+          Fact(answ = "10-1") |
+          Fact(answ = "11-3"))
+    def handle_Horror(self):
+        self.addTrust("Poppy", 0.5)
+        self.addTrust("MInecrft", 0.1)
+        self.addDistrust("WoT", 0.4)
+        self.addDistrust("Dota2", 0.4)
+        self.addDistrust("Factorio", 0.4)
+        
+    @Rule(Fact(answ = "4-1"))
+    def handle_Free(self):
+        self.addTrust("Dota2", 0.4)
+        self.addTrust("WoT", 0.4)
+    
+    @Rule(Fact(answ = "4-2"))
+    def handle_Money(self):
+        self.addTrust("MInecraft", 0.3)
+        self.addTrust("Poppy", 0.5)
+        self.addTrust("Factorio", 0.5)
         
     def getCC(self):
         """
@@ -155,3 +203,4 @@ class ExpertSystem(KnowledgeEngine):
                 key = res
 
         return key, max
+        
