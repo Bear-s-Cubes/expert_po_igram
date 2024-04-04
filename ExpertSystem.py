@@ -21,12 +21,24 @@ class ExperSystem(KnowledgeEngine):
     def addTrust(self, game: str, multiplier: float):
         """
         Обновляет Меры доверия
+        
+        Args:
+            game(str): Название игры
+            multiplier(float): Вес доверия
+        
+        Returns: none
         """
         self.trust_scores[game] += multiplier * (1 - self.trust_scores[game])
 
     def addDistrust(self, game: str, multiplier: float):
         """
         Обновляет Меры недоверия
+        
+        Args:
+            game(str): Название игры
+            multiplier(float): Вес недоверия
+        
+        Returns: none
         """
         self.distrust_scores[game] += multiplier * (1 - self.distrust_scores[game])
 
