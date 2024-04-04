@@ -1,6 +1,6 @@
 from experta import KnowledgeEngine, Rule, Fact
 
-class ExperSystem(KnowledgeEngine):
+class ExpertSystem(KnowledgeEngine):
     def __init__(self):
         super().__init__()
         self.trust_scores = {
@@ -135,3 +135,23 @@ class ExperSystem(KnowledgeEngine):
         self.addDistrust("WoT", 0.3)
         self.addDistrust("Dota2", 0.2)
         
+    def getCC(self):
+        """
+        Returns confidence coefficient
+        """
+        ku = self.trust_scores.copy()
+        for key in self.trust_scores.keys():
+            ku[key] -= self.distrust_scores[key]
+        return ku
+    
+    def get_game(self):
+        ku = self.getCC()
+        print(ku)
+        max = -1
+        key = ""
+        for res in ku:
+            if ku[res] > max:
+                max = ku[res]
+                key = res
+
+        return key, max
