@@ -1,4 +1,3 @@
-from ast import Dict
 import json
 from ExpertSystem import Fact
 from ExpertSystem import ExpertSystem
