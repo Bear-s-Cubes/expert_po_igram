@@ -1,4 +1,4 @@
-from experta import *
+from experta import KnowledgeEngine, Rule, Fact
 
 class ExperSystem(KnowledgeEngine):
     def __init__(self):
