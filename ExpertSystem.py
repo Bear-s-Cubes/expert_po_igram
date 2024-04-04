@@ -128,7 +128,7 @@ class ExpertSystem(KnowledgeEngine):
           Fact(answ = "13-4") |
           Fact(answ = "14-1"))
     def handle_Mind(self):
-        self.addTrust("Factorio", 0.5)
+        self.addTrust("Factorio", 0.4)
         self.addTrust("Minecraft", 0.2)
         self.addDistrust("Poppy", 0.3)
         self.addDistrust("WoT", 0.3)
