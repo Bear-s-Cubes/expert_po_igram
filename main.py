@@ -15,8 +15,8 @@ def main():
     q = aq["Questions"]
     a = aq["Answers"]
     for key in q:
-        print(q[key])
-        x = str(input('\n'.join( a[key] ) + "\n"))
+        print('\n' + q[key])
+        x = str(input(f"{'\n'.join(a[key])}\n"))
         ans = key + "-" + x
         expert.declare(Fact(answ=ans))
         expert.run()
